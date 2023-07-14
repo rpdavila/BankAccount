@@ -68,10 +68,16 @@ namespace BankAccount
             foreach (var item in allTransactions)
             {
                 table.AddRow(item.Date.ToShortDateString(), item.Amount, item.Notes);
-            }
+            }           
             
+            table.Write(Format.Alternative);            
+        }
+
+        public void GetAccountBalance()
+        {
+            var table = new ConsoleTable("Date", "Balance");
+            table.AddRow(DateTime.Now, Balance);
             table.Write(Format.Alternative);
-            
         }
     }
     
